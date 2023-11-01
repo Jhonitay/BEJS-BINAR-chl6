@@ -1,7 +1,7 @@
 const express = require('express'),
     cors = require('cors'),
     app = new express(),
-    PORT = process.env.PORT || 3000
+    PORT = process.env.PORT
     router = require('./routers')
 require('dotenv').config()
 
@@ -16,5 +16,5 @@ app.get('*', (req, res) => {
 })
 
 app.listen(PORT, ()=>{
-    console.log ('SERVER BERJALAN DI PORT 3000')
+    console.log ('SERVER BERJALAN DI PORT',PORT)
 })

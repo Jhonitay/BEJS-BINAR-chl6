@@ -1,9 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     {product} = require('../models'),
-    {imageKit} = require('../utils/imageKit'),
-    {PrismaClient} = require('@prisma/client'),
-    prisma = new PrismaClient()
+    {imageKit} = require('../utils/imageKit')
 
 module.exports = {
     createproduct: async (req, res) => {
