@@ -4,5 +4,6 @@ const express = require('express'),
     multerLib = require('multer')()
 
 router.post('/upload',  controllers.create)
+router.get('/list',  controllers.getList)
 
 module.exports = router
