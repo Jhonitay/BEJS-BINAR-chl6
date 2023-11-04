@@ -53,6 +53,13 @@ module.exports = {
         product : true
       }
     })
+
+    if (!data){
+      return res.status(404).json({
+        msg: "id not found"
+      });
+    }
+    
     return res.status(200).json({
       msg : 'success',
       data : data
