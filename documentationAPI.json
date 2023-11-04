@@ -4,7 +4,6 @@
         "title": "Challenge6 BEJS 2",
         "version": "1.0.11"
     },
-    
     "servers": [
         {
             "url": "https://challenge6.up.railway.app/v1"
@@ -120,8 +119,8 @@
                                     "properties": {
                                         "data": {
                                             "type": "array",
-                                            "items":{
-                                                "type":"object",
+                                            "items": {
+                                                "type": "object",
                                                 "properties": {
                                                     "id": {
                                                         "type": "integer",
@@ -145,7 +144,6 @@
                                                     }
                                                 }
                                             }
-                                            
                                         }
                                     }
                                 }
@@ -256,7 +254,8 @@
                             "type": "integer"
                         }
                     }
-                ],"requestBody": {
+                ],
+                "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
@@ -276,7 +275,6 @@
                         }
                     }
                 },
-
                 "responses": {
                     "200": {
                         "description": "succsess",
@@ -436,8 +434,8 @@
                                     "properties": {
                                         "data": {
                                             "type": "array",
-                                            "items":{
-                                                "type":"object",
+                                            "items": {
+                                                "type": "object",
                                                 "properties": {
                                                     "id": {
                                                         "type": "integer",
@@ -450,13 +448,13 @@
                                                     "umur": {
                                                         "type": "integer",
                                                         "example": 1000000
-                                                    },"addres": {
+                                                    },
+                                                    "addres": {
                                                         "type": "string",
                                                         "example": "skdhfjd"
                                                     }
                                                 }
                                             }
-                                            
                                         }
                                     }
                                 }
@@ -465,6 +463,169 @@
                     },
                     "500": {
                         "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/seniman/{id}": {
+            "get": {
+                "tags": [
+                    "Seniman"
+                ],
+                "summary": "Get Detail seniman",
+                "description": "Find detail data",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "input a id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "succsess",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "jhon@duar.com"
+                                                },
+                                                "umur": {
+                                                    "type": "integer",
+                                                    "example": 1000000
+                                                },
+                                                "addres": {
+                                                    "type": "string",
+                                                    "example": "skdhfjd"
+                                                },
+                                                "product": {
+                                                    "type": "array",
+                                                    "item": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "Judul": {
+                                                            "type": "string",
+                                                            "example": "gambar a"
+                                                        },
+                                                        "image": {
+                                                            "type": "string",
+                                                            "example": "skdhfjd"
+                                                        },
+                                                        "descritption": {
+                                                            "type": "string",
+                                                            "example": "skdhfjd"
+                                                        },
+                                                        "harga": {
+                                                            "type": "integer",
+                                                            "example": "skdhfjd"
+                                                        },
+                                                        "seniman_id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "404": {
+                        "description": "id not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Seniman"
+                ],
+                "summary": "edit seniman",
+                "description": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "input a id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "umur": {
+                                        "type": "string"
+                                    },
+                                    "addres": {
+                                        "type": "string",
+                                        "format": "file"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "succsess"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Seniman"
+                ],
+                "summary": "delete seniman by id",
+                "description": "delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "input a id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "succsess"
+                    },
+                    "404": {
+                        "description": "idi not found"
+                    },
+                    "500": {
+                        "description": "sinternal server error"
                     }
                 }
             }

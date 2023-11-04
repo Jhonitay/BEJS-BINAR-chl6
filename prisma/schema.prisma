@@ -28,3 +28,10 @@ model product{
   seniman seniman @relation(fields: [seniman_id] , references: [id])
 
 }
+
+model user{
+  id Int @id @default(autoincrement())
+  username String @unique
+  email String @unique
+  password String
+}
